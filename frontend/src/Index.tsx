@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import WelcomeShowcase3D from './components/WelcomeShowcase3D';
+import IntroVideo from './components/IntroVideo';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TrustBar from './components/TrustBar';
@@ -17,7 +17,7 @@ import AdminDashboard from './components/AdminDashboard';
 import FloatingActions from './components/FloatingActions';
 
 export default function Index() {
-  const [showWelcome, setShowWelcome] = useState(true);
+  const [hasWatchedVideo, setHasWatchedVideo] = useState(false);
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   const [selectedBrand, setSelectedBrand] = useState('');
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -66,16 +66,15 @@ export default function Index() {
         <div className="ambient-glow-amber w-[600px] h-[600px] top-[88%] -left-40 opacity-25" />
       </div>
 
-      {/* 1. Grand 3D Welcome Showcase (Showcases in full format on enter, auto-divides into 3D side-by-side pieces) */}
-      {showWelcome && (
-        <WelcomeShowcase3D onEnter={() => setShowWelcome(false)} />
+      {/* 1. Full-Screen Video Intro Showcase (Fades away upon completion or when skipped) */}
+      {!hasWatchedVideo && (
+        <IntroVideo onComplete={() => setHasWatchedVideo(true)} />
       )}
 
       {/* 2. Golden Dawn Frosted Navbar */}
       <Navbar 
         isAdmin={isAdmin}
         onOpenAdmin={() => setIsAdminOpen(true)}
-        onOpenWelcome={() => setShowWelcome(true)}
       />
 
       {/* 3. Hero Section with 4K Storefront Photo */}
@@ -83,7 +82,6 @@ export default function Index() {
         <Hero 
           onOpenQuote={handleOpenQuote} 
           onExploreClick={handleExplore}
-          onOpenWelcome={() => setShowWelcome(true)}
         />
 
         {/* 4. Glossy Trust Bar Ribbon */}

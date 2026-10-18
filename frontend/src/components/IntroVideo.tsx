@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Volume2, VolumeX, ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 
 interface IntroVideoProps {
   onComplete: () => void;
@@ -7,7 +7,6 @@ interface IntroVideoProps {
 
 export default function IntroVideo({ onComplete }: IntroVideoProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const [isMuted, setIsMuted] = useState(true);
   const [progress, setProgress] = useState(0);
   const [isFadingOut, setIsFadingOut] = useState(false);
 
@@ -15,7 +14,7 @@ export default function IntroVideo({ onComplete }: IntroVideoProps) {
     const video = videoRef.current;
     if (!video) return;
 
-    // Autoplay muted to respect browser autoplay policies
+    // Autoplay muted to respect mobile and desktop browser policies
     video.muted = true;
     const playPromise = video.play();
     if (playPromise !== undefined) {
@@ -58,74 +57,67 @@ export default function IntroVideo({ onComplete }: IntroVideoProps) {
     }, 300);
   };
 
-  const toggleSound = () => {
-    if (!videoRef.current) return;
-    const nextMuted = !videoRef.current.muted;
-    videoRef.current.muted = nextMuted;
-    setIsMuted(nextMuted);
-  };
-
   return (
     <div 
-      className={`fixed inset-0 w-screen h-screen bg-black overflow-hidden z-50 transition-opacity duration-500 ${
+      className={`fixed inset-0 w-full h-[100dvh] bg-[#0A0502] overflow-hidden z-50 flex items-center justify-center select-none transition-opacity duration-500 ${
         isFadingOut ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
     >
-      {/* 1. Full-Screen Enhanced 4K/QHD Video Player */}
+      {/* 1. Ambient Background Video (Paints portrait/mobile letterboxing with matching motion light) */}
       <video
-        ref={videoRef}
         src="/gemini_generated_video_enhanced.mp4"
         autoPlay
         playsInline
-        muted={isMuted}
-        onTimeUpdate={handleTimeUpdate}
-        onEnded={handleVideoEnded}
-        onError={handleSkip}
-        style={{
-          imageRendering: '-webkit-optimize-contrast',
-          filter: 'contrast(1.03) brightness(1.01)',
-        }}
-        className="w-full h-full object-cover object-center pointer-events-none select-none"
+        muted
+        loop
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover blur-3xl opacity-35 scale-110 pointer-events-none select-none"
       />
 
-      {/* 2. Top-Left: Quality Badge with Logo */}
-      <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-20 flex items-center gap-2 sm:gap-3">
-        <img
-          src="/images/logo-transparent.png"
-          alt="Sree Murugan Sons Logo"
-          className="w-9 h-9 sm:w-12 sm:h-12 object-contain filter drop-shadow(0 2px 6px rgba(0,0,0,0.4))"
+      {/* Subtle Vignette Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/70 pointer-events-none" />
+
+      {/* 2. Main Crisp Video Player - Correctly assigned to fit mobile and desktop screens without cropping */}
+      <div className="relative z-10 w-full h-full flex items-center justify-center p-0 sm:p-4">
+        <video
+          ref={videoRef}
+          src="/gemini_generated_video_enhanced.mp4"
+          autoPlay
+          playsInline
+          muted
+          webkit-playsinline="true"
+          onTimeUpdate={handleTimeUpdate}
+          onEnded={handleVideoEnded}
+          onError={handleSkip}
+          className="w-full h-full object-contain object-center max-h-[100dvh] shadow-2xl"
+          style={{
+            imageRendering: '-webkit-optimize-contrast',
+            filter: 'contrast(1.03) brightness(1.01)',
+          }}
         />
-        <div className="liquid-glass rounded-full px-3 py-1 sm:px-4 sm:py-1.5 flex items-center gap-1.5 sm:gap-2 border border-amber-400/40 bg-black/40 shadow-[0_0_20px_rgba(255,215,0,0.25)]">
-          <Sparkles size={12} className="text-amber-400 animate-pulse shrink-0" />
-          <span className="text-[10px] sm:text-[11px] font-semibold tracking-wider uppercase text-amber-200 truncate">
-            Sree Murugan Sons
-          </span>
-        </div>
       </div>
 
-      {/* 3. Top-Right: Sound Control & Enter Website Button */}
-      <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-20 flex items-center gap-2 sm:gap-3">
-        {/* Sound Toggle */}
-        <button
-          onClick={toggleSound}
-          className="liquid-glass rounded-full p-2.5 sm:p-3 text-white/80 hover:text-white transition-all cursor-pointer flex items-center gap-1.5"
-          title={isMuted ? "Unmute Soundtrack" : "Mute Soundtrack"}
-          aria-label="Toggle Sound"
-        >
-          {isMuted ? (
-            <VolumeX size={16} />
-          ) : (
-            <>
-              <Volume2 size={16} className="text-amber-300" />
-              <span className="text-[9px] sm:text-[10px] tracking-wider uppercase font-semibold text-amber-300 pr-1 hidden xs:inline">Audio On</span>
-            </>
-          )}
-        </button>
+      {/* 3. Top Navigation Bar: Quality Badge & Enter Website (No volume button, fully mobile responsive) */}
+      <div className="absolute top-0 inset-x-0 z-20 flex items-center justify-between p-3 sm:p-6 pointer-events-auto">
+        {/* Brand Logo & Name */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          <img
+            src="/images/logo-transparent.png"
+            alt="Sree Murugan Sons Logo"
+            className="w-8 h-8 sm:w-11 sm:h-11 object-contain filter drop-shadow(0 2px 6px rgba(0,0,0,0.5))"
+          />
+          <div className="liquid-glass rounded-full px-2.5 py-1 sm:px-4 sm:py-1.5 flex items-center gap-1.5 border border-amber-400/40 bg-black/50 shadow-[0_0_20px_rgba(255,215,0,0.25)]">
+            <Sparkles size={11} className="text-amber-400 animate-pulse shrink-0" />
+            <span className="text-[10px] sm:text-xs font-bold tracking-wider uppercase text-amber-200 truncate">
+              Sree Murugan Sons
+            </span>
+          </div>
+        </div>
 
         {/* Enter Website Button */}
         <button
           onClick={handleSkip}
-          className="liquid-glass rounded-full px-3.5 py-2 sm:px-5 sm:py-2.5 text-[10px] sm:text-xs font-semibold tracking-wider uppercase text-white hover:text-amber-300 flex items-center gap-1.5 sm:gap-2 hover:bg-white/10 transition-all cursor-pointer border border-amber-400/40 shadow-[0_0_15px_rgba(255,215,0,0.2)]"
+          className="liquid-glass rounded-full px-3.5 py-1.5 sm:px-5 sm:py-2.5 text-[10px] sm:text-xs font-bold tracking-wider uppercase text-white hover:text-amber-300 flex items-center gap-1.5 sm:gap-2 hover:bg-white/10 transition-all cursor-pointer border border-amber-400/50 shadow-[0_0_15px_rgba(255,215,0,0.3)] active:scale-95 bg-black/40"
         >
           <span>Enter Website</span>
           <ArrowRight size={13} className="text-amber-400 shrink-0" />
@@ -133,9 +125,9 @@ export default function IntroVideo({ onComplete }: IntroVideoProps) {
       </div>
 
       {/* 4. Bottom Playback Progress Bar */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10 z-20">
+      <div className="absolute bottom-0 inset-x-0 h-1.5 bg-white/10 z-20">
         <div
-          className="h-full bg-gradient-to-r from-amber-400 via-amber-200 to-white transition-all duration-150 ease-linear shadow-[0_0_10px_rgba(255,215,0,0.8)]"
+          className="h-full bg-gradient-to-r from-amber-400 via-amber-200 to-white transition-all duration-150 ease-linear shadow-[0_0_12px_rgba(255,215,0,0.9)]"
           style={{ width: `${progress}%` }}
         />
       </div>

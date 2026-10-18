@@ -58,6 +58,8 @@ if (!empty($cleanPath) && file_exists($targetFile) && is_file($targetFile)) {
         'woff2'=> 'font/woff2',
         'woff' => 'font/woff',
         'ttf'  => 'font/ttf',
+        'xml'  => 'application/xml; charset=utf-8',
+        'txt'  => 'text/plain; charset=utf-8',
     ];
 
     if (isset($mimeTypes[$ext])) {

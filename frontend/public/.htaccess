@@ -9,6 +9,8 @@ DirectoryIndex index.php index.html
   AddType image/png .png
   AddType image/jpeg .jpg .jpeg
   AddType video/mp4 .mp4
+  AddType application/xml .xml
+  AddType text/plain .txt
 </IfModule>
 
 <IfModule mod_rewrite.c>
@@ -18,7 +20,7 @@ DirectoryIndex index.php index.html
   # 1. Do NOT rewrite real assets, scripts, stylesheets, or images
   RewriteRule ^assets/ - [L]
   RewriteRule ^images/ - [L]
-  RewriteCond %{REQUEST_URI} \.(js|mjs|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot|json|mp4|webp)$ [NC]
+  RewriteCond %{REQUEST_URI} \.(js|mjs|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot|json|mp4|webp|xml|txt)$ [NC]
   RewriteRule ^ - [L]
 
   # 2. Do not rewrite existing physical files or directories

@@ -1,0 +1,18 @@
+[
+  {
+    "_id": "sms-prod-1792152892878",
+    "name": "Tata Tiscon 550D TMT Rebars (12mm)",
+    "category": "TMT Steel",
+    "brand": "Tata Tiscon",
+    "price": 68,
+    "originalPrice": 75,
+    "unit": "per kg",
+    "offerTag": "Direct Mill Rate - 10% OFF",
+    "description": "Fe 550D high ductility TMT bars direct from authorized mill with computerized weighbridge receipts.",
+    "image": "/images/companies/steel-pipes-4k.jpg",
+    "badge": "",
+    "inStock": true,
+    "createdAt": "2026-10-16T12:14:52.878Z",
+    "updatedAt": "2026-10-16T12:14:52.878Z"
+  }
+]

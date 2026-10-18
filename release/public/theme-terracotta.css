@@ -1,0 +1,306 @@
+/* SREE MURUGAN SONS - Bold Terracotta & Vibrant Orange Theme */
+/* High-contrast, saturated, bold hardware store visual identity */
+
+:root {
+  --color-sunshine-start: #EA580C;
+  --color-sunshine-mid: #FF8500;
+  --color-sunshine-bright: #FFA000;
+  --color-sunshine-end: #FFB300;
+  --color-bold-orange: #EA580C;
+  --color-bold-flame: #E64A19;
+  --color-bold-terracotta: #C23608;
+  --color-bold-sienna: #992600;
+  --color-bold-amber: #D97706;
+  --color-bold-gold: #F59E0B;
+  --color-bold-dark: #1A0800;
+  --color-warm-bg: #FAF6F0;
+}
+
+/* ========================================================
+   1. Clean Logo - No extra boxes, borders, or backgrounds
+   ======================================================== */
+img[src*="logo"],
+img[alt*="Sree Murugan Sons"],
+.logo-img {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+div:has(> img[src*="logo"]),
+div:has(> img[alt*="Sree Murugan Sons"]) {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+/* ========================================================
+   2. Navbar in Proper Sunshine Orange Gradient with Black Text
+   ======================================================== */
+header,
+header.sticky,
+header[class*="sticky"] {
+  background: linear-gradient(90deg, #EA580C 0%, #FF7700 20%, #FF9500 55%, #FFA726 80%, #FF8F00 100%) !important;
+  background-color: #FF8500 !important;
+  border-bottom: 2.5px solid #C2410C !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 4px 18px -2px rgba(234, 88, 12, 0.35) !important;
+}
+
+/* All text inside navbar is solid Black */
+header,
+header *,
+header span:not([class*="bg-emerald"]),
+header div,
+header h1,
+header h2,
+header h3,
+header p,
+header a {
+  color: #000000 !important;
+}
+
+/* Store name and labels in navbar */
+header span[class*="text-[#B45309]"],
+header [class*="text-brand-charcoal"],
+header [class*="text-brand-slate"],
+header [class*="text-brand-muted"] {
+  color: #000000 !important;
+}
+
+/* Vertical divider line in navbar */
+header div[class*="bg-gray-200"],
+header div[class*="w-px"] {
+  background-color: rgba(0, 0, 0, 0.28) !important;
+  width: 1.5px !important;
+}
+
+/* Clean Seamless GSTIN Display (No white background, perfectly matching navbar color) */
+header div[class*="bg-white/92"],
+header div[class*="bg-slate-50"],
+header div:has(> span[class*="text-slate-500"]) {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+header span[class*="font-mono"],
+header div.font-mono {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #000000 !important;
+  font-weight: 900 !important;
+}
+
+/* Verified status dot in GSTIN */
+header span[class*="bg-emerald-700"],
+header span[class*="bg-emerald-600"] {
+  background-color: #047857 !important;
+  border-radius: 9999px !important;
+}
+
+/* Mobile GST badge */
+header span[class*="font-mono"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #000000 !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-weight: 900 !important;
+}
+
+/* ========================================================
+   3. Base Body & Highlights
+   ======================================================== */
+body {
+  background-color: #FAF6F0 !important;
+  color: #1A0800 !important;
+}
+
+::selection {
+  background-color: #EA580C !important;
+  color: #FFFFFF !important;
+}
+
+/* ========================================================
+   4. Phone Links & Badges Fix
+   ======================================================== */
+/* ALL inline telephone links must be clean text (NO orange block, NO box shadow) */
+a[href^="tel:"] {
+  background: transparent !important;
+  box-shadow: none !important;
+  animation: none !important;
+  border: none !important;
+  transform: none !important;
+}
+
+/* In cards, phone numbers are bold terracotta */
+div:not(footer):not(header) a[href^="tel:"] {
+  color: #C23608 !important;
+  font-weight: 800 !important;
+}
+
+div:not(footer):not(header) a[href^="tel:"]:hover {
+  color: #EA580C !important;
+  text-decoration: underline !important;
+}
+
+/* Footer phone links (clean text on dark footer) */
+footer a[href^="tel:"] {
+  color: #F1F5F9 !important;
+  font-weight: 700 !important;
+}
+
+footer a[href^="tel:"]:hover {
+  color: #F59E0B !important;
+}
+
+/* Footer Owner & Desk Badges (e.g., M. Vivekananthan) */
+footer span[class*="bg-white/10"] {
+  background-color: rgba(255, 255, 255, 0.16) !important;
+  color: #FBBF24 !important;
+  border: 1px solid rgba(251, 191, 36, 0.35) !important;
+  font-weight: 800 !important;
+  padding: 2px 8px !important;
+  border-radius: 4px !important;
+}
+
+/* Direct Contact Numbers Card Badges */
+span[class*="bg-brand-emeraldLight"],
+span[class*="text-brand-emeraldDark"],
+span[class*="text-slate-600"] {
+  background-color: #FFEDD5 !important;
+  color: #9A3412 !important;
+  border: 1px solid #FED7AA !important;
+  font-weight: 800 !important;
+}
+
+/* WhatsApp Link inside contact card */
+a[href*="wa.me"] {
+  background: transparent !important;
+  box-shadow: none !important;
+  animation: none !important;
+}
+
+/* ========================================================
+   5. Floating Action Buttons (Fixed Bottom-Right ONLY)
+   ======================================================== */
+@keyframes warmCallPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.55);
+  }
+  50% {
+    transform: scale(1.06);
+    box-shadow: 0 0 0 14px rgba(234, 88, 12, 0);
+  }
+}
+
+a.rounded-full[href^="tel:"],
+a[aria-label="Call Owner"] {
+  background: linear-gradient(135deg, #C23608 0%, #EA580C 100%) !important;
+  box-shadow: 0 10px 25px -4px rgba(234, 88, 12, 0.6) !important;
+  animation: warmCallPulse 2.8s infinite ease-in-out !important;
+  display: flex !important;
+}
+
+/* ========================================================
+   6. Bold Primary Buttons & Interactive UI
+   ======================================================== */
+button[class*="from-[#0B192C]"],
+a[class*="from-[#0B192C]"],
+button[class*="bg-gradient-to-r"],
+a[class*="bg-gradient-to-r"] {
+  background: linear-gradient(135deg, #C23608 0%, #EA580C 60%, #F97316 100%) !important;
+  color: #FFFFFF !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.02em !important;
+  box-shadow: 0 8px 24px -4px rgba(234, 88, 12, 0.45) !important;
+  border: none !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+button[class*="from-[#0B192C]"]:hover,
+a[class*="from-[#0B192C]"]:hover {
+  background: linear-gradient(135deg, #992600 0%, #C23608 60%, #EA580C 100%) !important;
+  box-shadow: 0 12px 30px -4px rgba(194, 54, 8, 0.55) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Bold Category & Product Badges */
+span[class*="bg-brand-forest"] {
+  background-color: #EA580C !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.3) !important;
+}
+
+/* Bold Terracotta Accent Color */
+.text-brand-emerald,
+.text-brand-forest {
+  color: #C23608 !important;
+  font-weight: 700 !important;
+}
+
+/* Bold Borders */
+.border-brand-emerald,
+.border-emerald-200,
+.border-brand-borderGreen {
+  border-color: #FDBA74 !important;
+}
+
+/* Bold Heading Highlights */
+h1 span[class*="bg-clip-text"],
+h2 span[class*="bg-clip-text"] {
+  background: linear-gradient(135deg, #7C1D06 0%, #C23608 50%, #EA580C 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  font-weight: 900 !important;
+}
+
+/* Active Tabs & Category Filters */
+button[class*="border-brand-emerald"],
+div[class*="border-brand-emerald"] {
+  border-color: #EA580C !important;
+  background-color: #FFF7ED !important;
+}
+
+/* Deep Bold Footer */
+footer {
+  background-color: #1A0800 !important;
+  border-top: 4px solid #EA580C !important;
+}
+
+footer h3,
+footer h4 {
+  color: #F59E0B !important;
+  font-weight: 800 !important;
+}
+
+footer a:hover {
+  color: #FB923C !important;
+}
+
+/* Smooth Bold Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF6F0;
+}
+::-webkit-scrollbar-thumb {
+  background: #C23608;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #EA580C;
+}

@@ -15,9 +15,14 @@ export default function IntroVideo({ onComplete }: IntroVideoProps) {
     const video = videoRef.current;
     if (!video) return;
 
-    // Autoplay muted first to respect browser autoplay policies
+    // Autoplay muted to respect browser autoplay policies
     video.muted = true;
-    video.play().catch(() => {});
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch((err) => {
+        console.warn('Autoplay initial notice:', err);
+      });
+    }
   }, []);
 
   const handleTimeUpdate = () => {
@@ -34,6 +39,9 @@ export default function IntroVideo({ onComplete }: IntroVideoProps) {
   };
 
   const handleVideoEnded = () => {
+    try {
+      sessionStorage.setItem('sms_intro_watched', 'true');
+    } catch (e) {}
     setIsFadingOut(true);
     setTimeout(() => {
       onComplete();
@@ -41,6 +49,9 @@ export default function IntroVideo({ onComplete }: IntroVideoProps) {
   };
 
   const handleSkip = () => {
+    try {
+      sessionStorage.setItem('sms_intro_watched', 'true');
+    } catch (e) {}
     setIsFadingOut(true);
     setTimeout(() => {
       onComplete();
@@ -69,6 +80,7 @@ export default function IntroVideo({ onComplete }: IntroVideoProps) {
         muted={isMuted}
         onTimeUpdate={handleTimeUpdate}
         onEnded={handleVideoEnded}
+        onError={handleSkip}
         style={{
           imageRendering: '-webkit-optimize-contrast',
           filter: 'contrast(1.03) brightness(1.01)',

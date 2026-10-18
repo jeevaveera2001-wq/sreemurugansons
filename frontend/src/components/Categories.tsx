@@ -45,9 +45,19 @@ export default function Categories({ onSelectProduct, isAdmin, onOpenAdminDashbo
       if (res.ok) {
         const data = await res.json();
         setProducts(data.products || []);
+        return;
       }
+      throw new Error('API unavailable');
     } catch (err) {
-      console.error('Failed to load products', err);
+      try {
+        const fallbackRes = await fetch('/products.json');
+        if (fallbackRes.ok) {
+          const fallbackData = await fallbackRes.json();
+          setProducts(Array.isArray(fallbackData) ? fallbackData : (fallbackData.products || []));
+        }
+      } catch (fallbackErr) {
+        console.warn('Fallback products could not be loaded', fallbackErr);
+      }
     } finally {
       setLoading(false);
     }

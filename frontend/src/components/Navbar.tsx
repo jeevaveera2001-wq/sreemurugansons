@@ -5,9 +5,10 @@ interface NavbarProps {
   onOpenLogin?: () => void;
   isAdmin?: boolean;
   onOpenAdmin?: () => void;
+  onOpenWelcome?: () => void;
 }
 
-export default function Navbar({ isAdmin, onOpenAdmin }: NavbarProps) {
+export default function Navbar({ isAdmin, onOpenAdmin, onOpenWelcome }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
@@ -74,6 +75,17 @@ export default function Navbar({ isAdmin, onOpenAdmin }: NavbarProps) {
 
           {/* Right Actions: Responsive CTA and Mobile Menu Toggle */}
           <div className="flex items-center gap-1.5 sm:gap-3">
+            {onOpenWelcome && (
+              <button
+                onClick={onOpenWelcome}
+                className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full glossy-pill text-xs font-bold text-[#B45309] hover:text-[#78350F] hover:bg-white/80 transition-all cursor-pointer shadow-2xs border border-amber-300/40 active:scale-95"
+                title="Experience 3D Welcome Showcase"
+              >
+                <Sparkles size={13} className="text-[#D97706] animate-pulse" />
+                <span>3D Welcome</span>
+              </button>
+            )}
+
             <a
               href="#calculator"
               className="golden-btn inline-flex items-center gap-1.5 px-3 sm:px-5 py-2 rounded-full font-extrabold text-[11px] sm:text-xs shadow-md transition-all whitespace-nowrap cursor-pointer"
@@ -110,6 +122,22 @@ export default function Navbar({ isAdmin, onOpenAdmin }: NavbarProps) {
         {/* Mobile Slide-Down Drawer */}
         {mobileMenuOpen && (
           <div className="md:hidden mt-3 pt-3 border-t border-amber-900/10 space-y-2 animate-fadeIn">
+            {onOpenWelcome && (
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenWelcome();
+                }}
+                className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-amber-500/10 text-[#B45309] hover:bg-amber-500/20 text-xs font-bold transition-all border border-amber-300/40"
+              >
+                <span className="flex items-center gap-2">
+                  <Sparkles size={14} className="text-[#D97706] animate-pulse" />
+                  <span>Experience 3D Welcome Showcase</span>
+                </span>
+                <ChevronRight size={14} className="text-amber-400/80" />
+              </button>
+            )}
+
             {navLinks.map((link) => {
               const Icon = link.icon;
               return (

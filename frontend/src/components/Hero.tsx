@@ -1,12 +1,15 @@
-import { ShieldCheck, FileText, ArrowRight, Truck, Award, Layers, Coins } from 'lucide-react';
+import { useState } from 'react';
+import { ShieldCheck, FileText, ArrowRight, Truck, Award, Layers, Coins, Sparkles, Image as ImageIcon } from 'lucide-react';
 import Scroll3D, { TiltCard3D } from './Scroll3D';
 
 interface HeroProps {
   onOpenQuote: () => void;
   onExploreClick: () => void;
+  onOpenWelcome?: () => void;
 }
 
-export default function Hero({ onOpenQuote, onExploreClick }: HeroProps) {
+export default function Hero({ onOpenQuote, onExploreClick, onOpenWelcome }: HeroProps) {
+  const [heroView, setHeroView] = useState<'emblem' | 'showroom'>('emblem');
   return (
     <section className="relative overflow-hidden pt-8 pb-12 sm:pt-14 sm:pb-16 sunrise-hero-bg border-b border-white/60">
       
@@ -81,33 +84,154 @@ export default function Hero({ onOpenQuote, onExploreClick }: HeroProps) {
 
           </Scroll3D>
 
-          {/* Right Column: 4K Storefront Image in Interactive 3D Tilt Card (Span 5) */}
+          {/* Right Column: Interactive 3D Divided Triptych & 4K Storefront Image (Span 5) */}
           <Scroll3D direction="right" delay={0.2} className="lg:col-span-5 relative">
-            <TiltCard3D maxTilt={7} className="rounded-3xl p-2.5 sm:p-3 glossy-card shadow-[0_20px_50px_-10px_rgba(217,119,6,0.3)] group hover:shadow-[0_28px_65px_-10px_rgba(217,119,6,0.45)] transition-all">
-              <div className="relative rounded-2xl overflow-hidden border border-white/80 bg-stone-100 aspect-[4/3] sm:aspect-[16/11]">
-                <img
-                  src="/assets/store-hero-W47zwWIs.jpg"
-                  alt="Sree Murugan Sons Storefront in Ettiyampatti, Harur"
-                  className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-[1.04]"
-                />
+            {/* View Selector Tabs */}
+            <div className="flex items-center justify-between mb-2 px-1">
+              <div className="inline-flex p-1 rounded-xl bg-white/70 backdrop-blur-md border border-amber-300/40 shadow-2xs">
+                <button
+                  type="button"
+                  onClick={() => setHeroView('emblem')}
+                  className={`px-3 py-1 rounded-lg text-[10px] sm:text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                    heroView === 'emblem'
+                      ? 'bg-gradient-to-r from-[#D97706] to-[#B45309] text-white shadow-xs'
+                      : 'text-[#78350F] hover:bg-amber-100/60'
+                  }`}
+                >
+                  <Sparkles size={11} className={heroView === 'emblem' ? 'text-amber-200' : 'text-[#D97706]'} />
+                  <span>3D Welcome Emblem</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setHeroView('showroom')}
+                  className={`px-3 py-1 rounded-lg text-[10px] sm:text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                    heroView === 'showroom'
+                      ? 'bg-gradient-to-r from-[#D97706] to-[#B45309] text-white shadow-xs'
+                      : 'text-[#78350F] hover:bg-amber-100/60'
+                  }`}
+                >
+                  <ImageIcon size={11} className={heroView === 'showroom' ? 'text-amber-200' : 'text-[#D97706]'} />
+                  <span>Storefront Photo</span>
+                </button>
+              </div>
 
-                {/* Subtle Bottom Light Scrim */}
-                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#2E1B0E]/90 via-[#2E1B0E]/40 to-transparent p-4 sm:p-5 text-white">
-                  <div className="flex items-center justify-between text-xs">
-                    <div className="flex flex-col">
-                      <span className="font-heading font-black text-sm text-white tracking-wide">
-                        Sree Murugan Sons Showroom
-                      </span>
-                      <span className="text-[11px] text-amber-200/90 font-medium mt-0.5">
-                        Main Road, Ettiyampatti &bull; Harur
-                      </span>
+              {onOpenWelcome && (
+                <button
+                  type="button"
+                  onClick={onOpenWelcome}
+                  className="text-[10px] sm:text-xs font-bold text-[#D97706] hover:text-[#B45309] hover:underline flex items-center gap-1 cursor-pointer"
+                  title="Expand Full Grand Entrance"
+                >
+                  <span>Grand 3D View</span>
+                  <ArrowRight size={11} />
+                </button>
+              )}
+            </div>
+
+            <TiltCard3D maxTilt={7} className="rounded-3xl p-2.5 sm:p-3 glossy-card shadow-[0_20px_50px_-10px_rgba(217,119,6,0.3)] group hover:shadow-[0_28px_65px_-10px_rgba(217,119,6,0.45)] transition-all">
+              {heroView === 'emblem' ? (
+                /* 3D Divided Triptych (3 Pieces Divided Side-by-Side in 3D) */
+                <div 
+                  onClick={onOpenWelcome}
+                  className="relative rounded-2xl overflow-hidden border border-white/80 bg-[#160B04] aspect-[4/3] sm:aspect-[16/11] p-2.5 sm:p-3.5 flex flex-col justify-between cursor-pointer group/triptych"
+                  title="Click to view full 3D Grand Entrance"
+                >
+                  {/* Subtle Background Glow */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-amber-600/20 via-transparent to-black/60 pointer-events-none" />
+
+                  {/* 3D Divided Pieces Container */}
+                  <div 
+                    className="relative w-full h-[78%] flex items-center justify-center gap-2 sm:gap-3.5 my-auto"
+                    style={{ perspective: '1000px', transformStyle: 'preserve-3d' }}
+                  >
+                    {/* Piece 1: Left */}
+                    <div 
+                      className="relative h-full flex-1 rounded-xl overflow-hidden border border-amber-400/40 shadow-lg transform transition-transform duration-500 group-hover/triptych:-translate-x-1.5"
+                      style={{
+                        transform: 'perspective(800px) rotateY(16deg) translateZ(-15px) scale(0.96)',
+                        boxShadow: '-8px 12px 24px rgba(0,0,0,0.6)',
+                      }}
+                    >
+                      <img 
+                        src="/images/welcome/welcome-left.jpg" 
+                        alt="Left piece - Heritage" 
+                        className="w-full h-full object-cover" 
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-amber-400/10 to-white/20 pointer-events-none" />
                     </div>
-                    <span className="px-3 py-1 rounded-full golden-btn text-white text-[10px] font-black uppercase tracking-wider shadow-sm">
-                      Open Mon - Sat
+
+                    {/* Piece 2: Center Medallion */}
+                    <div 
+                      className="relative h-full flex-1 rounded-xl overflow-hidden border-2 border-amber-300 shadow-2xl z-10 transform transition-transform duration-500 group-hover/triptych:scale-105"
+                      style={{
+                        transform: 'perspective(800px) rotateY(0deg) translateZ(35px) scale(1.04)',
+                        boxShadow: '0 16px 36px rgba(0,0,0,0.7), 0 0 25px rgba(245,158,11,0.4)',
+                      }}
+                    >
+                      <img 
+                        src="/images/welcome/welcome-center.jpg" 
+                        alt="Center piece - Peacock Medallion" 
+                        className="w-full h-full object-cover" 
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-b from-amber-400/20 via-transparent to-black/30 pointer-events-none" />
+                    </div>
+
+                    {/* Piece 3: Right Sunburst */}
+                    <div 
+                      className="relative h-full flex-1 rounded-xl overflow-hidden border border-amber-400/40 shadow-lg transform transition-transform duration-500 group-hover/triptych:translate-x-1.5"
+                      style={{
+                        transform: 'perspective(800px) rotateY(-16deg) translateZ(-15px) scale(0.96)',
+                        boxShadow: '8px 12px 24px rgba(0,0,0,0.6)',
+                      }}
+                    >
+                      <img 
+                        src="/images/welcome/welcome-right.jpg" 
+                        alt="Right piece - Sunburst" 
+                        className="w-full h-full object-cover" 
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-tl from-amber-400/20 via-transparent to-white/10 pointer-events-none" />
+                    </div>
+                  </div>
+
+                  {/* Bottom Ribbon Overlay */}
+                  <div className="relative z-10 flex items-center justify-between text-xs pt-1.5 border-t border-amber-400/30">
+                    <span className="font-heading font-black text-xs sm:text-sm text-amber-200 tracking-wide flex items-center gap-1.5">
+                      <Sparkles size={12} className="text-amber-400" />
+                      <span>3D Emblem &bull; Divided Format</span>
+                    </span>
+                    <span className="px-2.5 py-0.5 rounded-full bg-amber-500 text-[#2E1B0E] text-[10px] font-black uppercase tracking-wider shadow-sm flex items-center gap-1 group-hover/triptych:bg-amber-400 transition-colors">
+                      <span>Click to Expand</span>
+                      <ArrowRight size={10} />
                     </span>
                   </div>
                 </div>
-              </div>
+              ) : (
+                /* Storefront Photo */
+                <div className="relative rounded-2xl overflow-hidden border border-white/80 bg-stone-100 aspect-[4/3] sm:aspect-[16/11]">
+                  <img
+                    src="/assets/store-hero-W47zwWIs.jpg"
+                    alt="Sree Murugan Sons Storefront in Ettiyampatti, Harur"
+                    className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-[1.04]"
+                  />
+
+                  {/* Subtle Bottom Light Scrim */}
+                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#2E1B0E]/90 via-[#2E1B0E]/40 to-transparent p-4 sm:p-5 text-white">
+                    <div className="flex items-center justify-between text-xs">
+                      <div className="flex flex-col">
+                        <span className="font-heading font-black text-sm text-white tracking-wide">
+                          Sree Murugan Sons Showroom
+                        </span>
+                        <span className="text-[11px] text-amber-200/90 font-medium mt-0.5">
+                          Main Road, Ettiyampatti &bull; Harur
+                        </span>
+                      </div>
+                      <span className="px-3 py-1 rounded-full golden-btn text-white text-[10px] font-black uppercase tracking-wider shadow-sm">
+                        Open Mon - Sat
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              )}
             </TiltCard3D>
           </Scroll3D>
 

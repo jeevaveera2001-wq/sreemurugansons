@@ -48,7 +48,7 @@ export default function StoreInfo() {
                     </div>
                     <div className="pt-2">
                       <a
-                        href="https://www.google.com/maps/place/Sre+Murugan+Sons/@12.0536954,78.5411758,16z/data=!4m6!3m5!1s0x3bac65ec72b7658b:0x1ae9173bf869fb34!8m2!3d12.0536954!4d78.5411758"
+                        href="https://maps.app.goo.gl/JmmmuctvRibcLtQM7"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-[11px] font-bold text-[#D97706] hover:underline inline-flex items-center gap-1"
@@ -147,9 +147,10 @@ export default function StoreInfo() {
                 <div className="rounded-3xl overflow-hidden glossy-card p-2 sm:p-3 shadow-xl">
                   <iframe
                     title="Sre Murugan Sons Official Google Maps Location"
-                    src="https://maps.google.com/maps?q=12.0536954,78.5411758+(Sre+Murugan+Sons)&t=&z=16&ie=UTF8&iwloc=B&output=embed"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3896.790518386629!2d78.5386009!3d12.0536954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bac65ec72b7658b%3A0x1ae9173bf869fb34!2sSre%20Murugan%20Sons!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
                     className="w-full h-64 sm:h-96 rounded-2xl border-none"
                     loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
                   />
                   
                   {/* Google Maps Interactive Navigation Bar */}
@@ -159,7 +160,7 @@ export default function StoreInfo() {
                       <span>Sre Murugan Sons &bull; Verified Google Maps Location</span>
                     </div>
                     <a
-                      href="https://www.google.com/maps/place/Sre+Murugan+Sons/@12.0536954,78.5411758,16z/data=!4m6!3m5!1s0x3bac65ec72b7658b:0x1ae9173bf869fb34!8m2!3d12.0536954!4d78.5411758"
+                      href="https://maps.app.goo.gl/JmmmuctvRibcLtQM7"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-extrabold text-[11px] shadow-sm transition-all"

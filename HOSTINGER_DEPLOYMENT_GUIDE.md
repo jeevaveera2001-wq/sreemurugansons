@@ -61,14 +61,15 @@ Visit your domain `https://yourdomain.com`!
 
 ## ⚡ Method 2: Hostinger Static Web Hosting (`public_html`)
 
-*Ideal if you want the fast landing page and store UI hosted directly on standard Hostinger Web Hosting via LiteSpeed.*
+*Ideal for Single Web Hosting plans (`https://sremurugansons.com/`).*
 
+### Super Simple 2-Step Update:
 1. In Hostinger hPanel, go to **File Manager** → navigate into `public_html`.
-2. If there is a default placeholder file like `default.php`, delete it.
-3. Click **Upload** → upload `deploy-hostinger/hostinger-frontend-public_html.zip`.
-4. Right-click the uploaded zip and click **Extract**.
-5. Verify that `index.html`, `assets/`, `images/`, and `.htaccess` are directly inside `public_html/`.
-6. Open your domain `https://yourdomain.com` in your browser.
+2. Click **Upload** (top right) → upload `deploy-hostinger/hostinger-frontend-public_html.zip`.
+3. Open `https://sremurugansons.com/fix.php` in your browser (or right-click the zip in File Manager and click **Extract**).
+4. That's it! Visit `https://sremurugansons.com/` to see:
+   - Full-screen cinematic intro video (`gemini_generated_video_enhanced.mp4`)
+   - Exact verified **Sre Murugan Sons** Google Maps listing pin with reviews, rating, and address!
 
 > [!NOTE]
 > The included `.htaccess` file automatically configures:

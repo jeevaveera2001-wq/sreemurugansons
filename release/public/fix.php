@@ -8,6 +8,20 @@ $fixedCount = 0;
 echo "=== SREE MURUGAN SONS HOSTINGER AUTO-FIX TOOL ===\n";
 echo "Scanning directory: $dir\n\n";
 
+// Auto-Extract if zip exists
+$zipFile = $dir . '/hostinger-frontend-public_html.zip';
+if (file_exists($zipFile) && class_exists('ZipArchive')) {
+    echo "Found $zipFile. Extracting latest build...\n";
+    $zip = new ZipArchive;
+    if ($zip->open($zipFile) === TRUE) {
+        $zip->extractTo($dir);
+        $zip->close();
+        echo "Successfully extracted latest build!\n";
+    } else {
+        echo "Failed to open zip archive.\n";
+    }
+}
+
 foreach ($files as $file) {
     if (strpos($file, '\\') !== false) {
         $parts = explode('\\', $file);

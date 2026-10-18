@@ -81,7 +81,7 @@ export default function Footer() {
               <div className="flex items-start gap-2.5">
                 <MapPin size={16} className="text-[#D97706] shrink-0 mt-0.5" />
                 <a
-                  href="https://www.google.com/maps/place/Sre+Murugan+Sons/@12.0536954,78.5411758,16z/data=!4m6!3m5!1s0x3bac65ec72b7658b:0x1ae9173bf869fb34!8m2!3d12.0536954!4d78.5411758"
+                  href="https://maps.app.goo.gl/JmmmuctvRibcLtQM7"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#B45309] hover:underline transition-colors"

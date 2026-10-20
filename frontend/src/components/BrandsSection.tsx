@@ -10,64 +10,78 @@ interface BrandLogo {
 }
 
 const BRAND_LOGOS: BrandLogo[] = [
-  // Paints & Finishes
-  { id: 'asian-paints', name: 'Asian Paints', logo: '/images/brands/asian-paints.png', category: 'Paints & Finishes' },
-  { id: 'birla-opus', name: 'Birla Opus', logo: '/images/brands/birla-opus.png', category: 'Paints & Finishes' },
-  { id: 'indicus', name: 'Indicus', logo: '/images/brands/indicus.png', category: 'Paints & Finishes' },
-  { id: 'sms-primer', name: 'SMS Primer', logo: '/images/brands/sms-primer.png', category: 'Paints & Finishes' },
-  { id: 'alayam', name: 'Alayam', logo: '/images/brands/alayam.png', category: 'Paints & Finishes' },
-  { id: 'venlac-paints', name: 'Venlac Paints', logo: '/images/brands/venlac-paints.png', category: 'Paints & Finishes' },
+  // Division 01: Paints & Paints Essentials (9)
+  { id: 'paint-asian', name: 'Asian', logo: '/images/brands/asian-paints.png', category: 'Paints & Paints Essentials' },
+  { id: 'paint-indigo', name: 'Indigo', logo: '/images/brands/indicus.png', category: 'Paints & Paints Essentials' },
+  { id: 'paint-birla-opus', name: 'Birla Opus', logo: '/images/brands/birla-opus.png', category: 'Paints & Paints Essentials' },
+  { id: 'paint-padmashri', name: 'Padmashri Brush', logo: '/images/brands/padmashri.png', category: 'Paints & Paints Essentials' },
+  { id: 'paint-vetri-gold', name: 'Vetri Gold', logo: '/images/brands/vetri-gold.png', category: 'Paints & Paints Essentials' },
+  { id: 'paint-lg-alayam', name: 'LG Alayam', logo: '/images/brands/alayam.png', category: 'Paints & Paints Essentials' },
+  { id: 'paint-sms-primers', name: 'SMS Primers', logo: '/images/brands/sms-primer.png', category: 'Paints & Paints Essentials' },
+  { id: 'paint-vellac', name: 'Vellac', logo: '/images/brands/venlac-paints.png', category: 'Paints & Paints Essentials' },
 
-  // Steel, TMT & Wires
-  { id: 'aiswaryam-tmt', name: 'Aiswaryam 550D TMT', logo: '/images/brands/aiswaryam-tmt.png', category: 'Steel & TMT' },
-  { id: 'padmashri', name: 'Padmashri', logo: '/images/brands/padmashri.png', category: 'Steel & TMT' },
-  { id: 'vetri-gold', name: 'Vetri Gold', logo: '/images/brands/vetri-gold.png', category: 'Steel & TMT' },
-  { id: 'jsw-steel', name: 'JSW Steel', logo: '/images/brands/jsw-steel.png', category: 'Steel & TMT' },
-  { id: 'tata-wiron', name: 'Tata Wiron', logo: '/images/brands/tata-wiron-logo.png', category: 'Steel & TMT' },
-  { id: 'meenakshi-tmt', name: 'Meenakshi TMT', logo: '/images/brands/meenakshi-tmt.png', category: 'Steel & TMT' },
-  { id: 'tata-wiron-fence', name: 'Tata Wiron Aayush', logo: '/images/brands/tata-wiron.png', category: 'Steel & TMT' },
+  // Division 02: Steel & Pipes (6)
+  { id: 'steel-structural', name: 'Steel', logo: '/images/brands/jsw-steel.png', category: 'Steel & Pipes' },
+  { id: 'steel-aishwariyam', name: 'Aishwariyam', logo: '/images/brands/aiswaryam-tmt.png', category: 'Steel & Pipes' },
+  { id: 'steel-jsw', name: 'JSW', logo: '/images/brands/jsw-steel.png', category: 'Steel & Pipes' },
+  { id: 'steel-tata-chainlink', name: 'TATA Chain Link', logo: '/images/brands/tata-wiron.png', category: 'Steel & Pipes' },
+  { id: 'steel-meenakshi', name: 'Meenakshi', logo: '/images/brands/meenakshi-tmt.png', category: 'Steel & Pipes' },
 
-  // Cement
-  { id: 'ultratech-cement', name: 'UltraTech Cement', logo: '/images/brands/ultratech-cement.png', category: 'Cement' },
-  { id: 'chettinad-cement', name: 'Chettinad Cement', logo: '/images/brands/chettinad-cement.png', category: 'Cement' },
-  { id: 'ramco-cement', name: 'Ramco Supergrade Cement', logo: '/images/brands/ramco-cement.png', category: 'Cement' },
-  { id: 'valimai-cement', name: 'Valimai Cement', logo: '/images/brands/valimai-cement.png', category: 'Cement' },
+  // Division 03: Cements & Hardwares (7)
+  { id: 'cement-ultratech', name: 'Ultratech', logo: '/images/brands/ultratech-cement.png', category: 'Cements & Hardwares' },
+  { id: 'cement-chettinad', name: 'Chettinad', logo: '/images/brands/chettinad-cement.png', category: 'Cements & Hardwares' },
+  { id: 'cement-ramco', name: 'Ramco', logo: '/images/brands/ramco-cement.png', category: 'Cements & Hardwares' },
+  { id: 'cement-jsw', name: 'JSW', logo: '/images/brands/jsw-steel.png', category: 'Cements & Hardwares' },
+  { id: 'cement-valimai', name: 'Valimai', logo: '/images/brands/valimai-cement.png', category: 'Cements & Hardwares' },
+  { id: 'cement-ultratech-oil', name: 'Ultratech Oil', logo: '/images/brands/ultratech-cement.png', category: 'Cements & Hardwares' },
+  { id: 'cement-ultratech-pack', name: 'Ultratech Pack Cement', logo: '/images/brands/ultratech-cement.png', category: 'Cements & Hardwares' },
 
-  // Roofing & Cladding
-  { id: 'durashine', name: 'Durashine (Tata BlueScope)', logo: '/images/brands/durashine.png', category: 'Roofing & Cladding' },
-  { id: 'everest', name: 'Everest', logo: '/images/brands/everest.png', category: 'Roofing & Cladding' },
-  { id: 'everest-evercool', name: 'Everest Evercool', logo: '/images/brands/everest-evercool.png', category: 'Roofing & Cladding' },
-  { id: 'jsw-colouron', name: 'JSW Colouron+', logo: '/images/brands/jsw-colouron.png', category: 'Roofing & Cladding' },
-  { id: 'ridge', name: 'Ridge', logo: '/images/brands/ridge.png', category: 'Roofing & Cladding' },
+  // Division 04: Electricals & Pipes (14)
+  { id: 'pipe-supreme', name: 'Supreme Pipe', logo: '/images/brands/supreme-pipes.png', category: 'Electricals & Pipes' },
+  { id: 'pipe-texmo', name: 'Texmo Pipe', logo: '/images/brands/texmo.png', category: 'Electricals & Pipes' },
+  { id: 'pipe-aavin-plast', name: 'Aavin Plast Pipe', logo: '/images/brands/avonplast.png', category: 'Electricals & Pipes' },
+  { id: 'pipe-aquatech', name: 'Aqua Tech Fittings', logo: '/images/brands/aquatech.png', category: 'Electricals & Pipes' },
+  { id: 'elec-finolex-cable', name: 'Finolex Cable', logo: '/images/brands/finolex.png', category: 'Electricals & Pipes' },
+  { id: 'elec-kundan-cable', name: 'Kundan Cable', logo: '/images/brands/kundan-cable.png', category: 'Electricals & Pipes' },
+  { id: 'elec-ipl-cable', name: 'IPL Cable', logo: '/images/brands/ipl-cables.png', category: 'Electricals & Pipes' },
+  { id: 'elec-vguard-motors', name: 'V. Guard Motors', logo: '/images/brands/v-guard.png', category: 'Electricals & Pipes' },
+  { id: 'elec-v-fan', name: 'V. Fan', logo: '/images/brands/v-guard.png', category: 'Electricals & Pipes' },
+  { id: 'elec-orient-fan', name: 'Orient Fan', logo: '/images/brands/orient-electric.png', category: 'Electricals & Pipes' },
+  { id: 'elec-venus-heater', name: 'Venus Hot Water Heater', logo: '/images/brands/venus-heaters.png', category: 'Electricals & Pipes' },
+  { id: 'elec-light-barch', name: 'Light Barch', logo: '/images/brands/barch-led.png', category: 'Electricals & Pipes' },
+  { id: 'elec-panasonic-light', name: 'Panasonic Light', logo: '/images/brands/panasonic.png', category: 'Electricals & Pipes' },
+  { id: 'elec-hifi-oil', name: 'Hi-Fi Oil', logo: '/images/brands/hi-fi-electric.png', category: 'Electricals & Pipes' },
 
-  // Pipes & Sanitary
-  { id: 'san-mart', name: 'SM San Mart', logo: '/images/brands/san-mart.png', category: 'Pipes & Sanitary' },
-  { id: 'supreme-pipes', name: 'Supreme Piping Solution', logo: '/images/brands/supreme-pipes.png', category: 'Pipes & Sanitary' },
-  { id: 'texmo', name: 'Texmo Pumps', logo: '/images/brands/texmo.png', category: 'Pipes & Sanitary' },
-  { id: 'avonplast', name: 'Avonplast', logo: '/images/brands/avonplast.png', category: 'Pipes & Sanitary' },
-  { id: 'aquatech', name: 'Aqua Tech', logo: '/images/brands/aquatech.png', category: 'Pipes & Sanitary' },
+  // Division 05: Cooling Sheets & Cement Sheets (5)
+  { id: 'roof-everest-cement', name: 'Everest Cement Sheet', logo: '/images/brands/everest.png', category: 'Cooling Sheets & Cement Sheets' },
+  { id: 'roof-everest-cool', name: 'Everest Cool Cement Sheet', logo: '/images/brands/everest-evercool.png', category: 'Cooling Sheets & Cement Sheets' },
+  { id: 'roof-gs-sheet', name: 'G.S Sheet', logo: '/images/brands/durashine.png', category: 'Cooling Sheets & Cement Sheets' },
+  { id: 'roof-color-sheet', name: 'Color Sheet – JSW, Tata Color Sheet', logo: '/images/brands/jsw-colouron.png', category: 'Cooling Sheets & Cement Sheets' },
+  { id: 'roof-ridge-sheet', name: 'Ridge Sheet', logo: '/images/brands/ridge.png', category: 'Cooling Sheets & Cement Sheets' },
 
-  // Electricals & Appliances
-  { id: 'v-guard', name: 'V-Guard', logo: '/images/brands/v-guard.png', category: 'Electricals & Appliances' },
-  { id: 'orient-electric', name: 'Orient Electric', logo: '/images/brands/orient-electric.png', category: 'Electricals & Appliances' },
-  { id: 'kundan-cable', name: 'Kundan Cable', logo: '/images/brands/kundan-cable.png', category: 'Electricals & Appliances' },
-  { id: 'finolex', name: 'Finolex Cables', logo: '/images/brands/finolex.png', category: 'Electricals & Appliances' },
-  { id: 'ipl-cables', name: 'IPL Indias Power Line', logo: '/images/brands/ipl-cables.png', category: 'Electricals & Appliances' },
-  { id: 'venus-heaters', name: 'Venus Water Heaters', logo: '/images/brands/venus-heaters.png', category: 'Electricals & Appliances' },
-  { id: 'barch-led', name: 'Barch LED Lights', logo: '/images/brands/barch-led.png', category: 'Electricals & Appliances' },
-  { id: 'panasonic', name: 'Panasonic', logo: '/images/brands/panasonic.png', category: 'Electricals & Appliances' },
-  { id: 'hi-fi-electric', name: 'Hi-Fi Electric', logo: '/images/brands/hi-fi-electric.png', category: 'Electricals & Appliances' },
+  // Division 06: Slab & Washbasin (2)
+  { id: 'sanitary-sun-mart', name: 'Sun Mart', logo: '/images/brands/san-mart.png', category: 'Slab & Washbasin' },
+  { id: 'custom-slabs-washbasins', name: 'Sree Murugan Custom Slabs & Washbasins', logo: '/images/sree-murugan-logo.png', category: 'Slab & Washbasin' },
 ];
 
 const CATEGORIES = [
   'All',
-  'Cement',
-  'Steel & TMT',
-  'Roofing & Cladding',
-  'Paints & Finishes',
-  'Pipes & Sanitary',
-  'Electricals & Appliances',
+  'Paints & Paints Essentials',
+  'Steel & Pipes',
+  'Cements & Hardwares',
+  'Electricals & Pipes',
+  'Cooling Sheets & Cement Sheets',
+  'Slab & Washbasin',
 ];
+
+const CATEGORY_COMPANIES: Record<string, string> = {
+  'Paints & Paints Essentials': 'Sree Murugan Sons (Paints & Paints Essentials)',
+  'Steel & Pipes': 'Sree Murugan Sons (Steel & Pipes)',
+  'Cements & Hardwares': 'Sree Murugan Sons (Cements & Hardwares)',
+  'Electricals & Pipes': 'Sree Murugan Sons (Electricals & Pipes)',
+  'Cooling Sheets & Cement Sheets': 'Sree Murugan Sons (Cooling Sheets & Cement Sheets)',
+  'Slab & Washbasin': 'Sree Murugan Sons (Slab & Washbasin)',
+};
 
 interface BrandsSectionProps {
   onOpenQuote?: (brandName?: string) => void;
@@ -108,68 +122,147 @@ export default function BrandsSection({ onOpenQuote }: BrandsSectionProps) {
       <div className="ambient-glow-amber w-[450px] h-[450px] top-1/2 -left-24 opacity-25 float-3d-slow pointer-events-none" />
       <div className="ambient-glow-orange w-[450px] h-[450px] top-1/2 -right-24 opacity-25 float-3d-reverse pointer-events-none" />
 
-      {/* Section Heading & Click-to-View Trigger */}
-      <Scroll3D direction="up" delay={0.05}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-9 text-center relative z-10">
-          <button
-            onClick={() => setIsModalOpen(true)}
-            className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full glossy-pill text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#D97706] mb-2 sm:mb-2.5 shadow-2xs hover:scale-105 transition-transform cursor-pointer"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B] animate-pulse" />
-            <span>Authorized Network • 36 Brands</span>
-          </button>
-          
-          <h2 
-            onClick={() => setIsModalOpen(true)}
-            className="font-heading text-2xl xs:text-3xl sm:text-4xl font-black text-[#2E1B0E] tracking-tight cursor-pointer hover:text-[#D97706] transition-colors"
-            title="Click to view all dealerships"
-          >
-            Our Dealing Partners
-          </h2>
-
-          {/* Action Trigger Pill: View All Dealerships */}
-          <div className="mt-3 flex justify-center">
+      {/* DESKTOP VIEW (md+): Centered Heading + Infinite Horizontal Scrolling Marquee */}
+      <div className="hidden md:block">
+        <Scroll3D direction="up" delay={0.05}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-9 text-center relative z-10">
             <button
               onClick={() => setIsModalOpen(true)}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold text-[#B45309] bg-amber-500/10 hover:bg-amber-500/20 border border-amber-300/40 hover:border-amber-400 shadow-2xs transition-all duration-200 cursor-pointer active:scale-95"
+              className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full glossy-pill text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#D97706] mb-2 sm:mb-2.5 shadow-2xs hover:scale-105 transition-transform cursor-pointer"
             >
-              <Grid className="w-3.5 h-3.5" />
-              <span>Click to explore all 36 dealerships with logos</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#D97706]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B] animate-pulse" />
+              <span>Authorized Network • {BRAND_LOGOS.length} Brands</span>
             </button>
-          </div>
-        </div>
-      </Scroll3D>
+            
+            <h2 
+              onClick={() => setIsModalOpen(true)}
+              className="font-heading text-2xl xs:text-3xl sm:text-4xl font-black text-[#2E1B0E] tracking-tight cursor-pointer hover:text-[#D97706] transition-colors"
+              title="Click to view all dealerships"
+            >
+              Our Dealing Partners
+            </h2>
 
-      {/* Infinite Horizontal Scrolling Track with Left & Right Vignette Masks */}
-      <Scroll3D direction="up" delay={0.12}>
-        <div 
-          onClick={() => setIsModalOpen(true)}
-          className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] cursor-pointer"
-          title="Click section to see all dealerships"
-        >
-          <div className="animate-marquee-scroll flex items-center gap-10 sm:gap-16 py-3">
-            {repeatedLogos.map((brand, idx) => (
-              <div
-                key={`${brand.id}-${idx}`}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setIsModalOpen(true);
-                }}
-                className="shrink-0 flex items-center justify-center transition-transform duration-300 hover:scale-110 select-none cursor-pointer px-2"
-                title={`${brand.name} - Click to see all dealerships`}
+            {/* Action Trigger Pill: View All Dealerships */}
+            <div className="mt-3 flex justify-center">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold text-[#B45309] bg-amber-500/10 hover:bg-amber-500/20 border border-amber-300/40 hover:border-amber-400 shadow-2xs transition-all duration-200 cursor-pointer active:scale-95"
               >
-                <img
-                  src={brand.logo}
-                  alt={brand.name}
-                  className="h-12 sm:h-20 w-auto max-w-[160px] sm:max-w-[230px] object-contain rounded-lg filter drop-shadow-[0_2px_8px_rgba(217,119,6,0.12)] hover:drop-shadow-[0_4px_14px_rgba(217,119,6,0.25)] transition-all"
-                  loading="lazy"
-                />
-              </div>
-            ))}
+                <Grid className="w-3.5 h-3.5" />
+                <span>Click to explore all {BRAND_LOGOS.length} dealerships with logos</span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#D97706]" />
+              </button>
+            </div>
           </div>
-        </div>
-      </Scroll3D>
+        </Scroll3D>
+
+        {/* Infinite Horizontal Scrolling Track with Left & Right Vignette Masks */}
+        <Scroll3D direction="up" delay={0.12}>
+          <div 
+            onClick={() => setIsModalOpen(true)}
+            className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] cursor-pointer"
+            title="Click section to see all dealerships"
+          >
+            <div className="animate-marquee-scroll flex items-center gap-10 sm:gap-16 py-3">
+              {repeatedLogos.map((brand, idx) => (
+                <div
+                  key={`${brand.id}-${idx}`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsModalOpen(true);
+                  }}
+                  className="shrink-0 flex items-center justify-center transition-transform duration-300 hover:scale-110 select-none cursor-pointer px-2"
+                  title={`${brand.name} - Click to see all dealerships`}
+                >
+                  <img
+                    src={brand.logo}
+                    alt={brand.name}
+                    className="h-12 sm:h-20 w-auto max-w-[160px] sm:max-w-[230px] object-contain rounded-lg filter drop-shadow-[0_2px_8px_rgba(217,119,6,0.12)] hover:drop-shadow-[0_4px_14px_rgba(217,119,6,0.25)] transition-all"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </Scroll3D>
+      </div>
+
+      {/* MOBILE VIEW (< md): Right-Side Flush Vertical Marquee (Top to Bottom, Non-blocking Touch) */}
+      <div className="md:hidden relative px-4 overflow-hidden">
+        <Scroll3D direction="up" delay={0.08}>
+          <div className="flex items-center justify-between gap-3 min-h-[360px] relative">
+            
+            {/* Left Column: Heading, Counter & Exploration Actions */}
+            <div className="flex-1 pr-1.5 z-10 flex flex-col justify-center">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="self-start inline-flex items-center gap-1.5 px-3 py-1 rounded-full glossy-pill text-[10px] font-extrabold uppercase tracking-wider text-[#D97706] mb-2.5 shadow-2xs cursor-pointer active:scale-95 transition-transform"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B] animate-pulse" />
+                <span>{BRAND_LOGOS.length} Authorized Brands</span>
+              </button>
+
+              <h2 
+                onClick={() => setIsModalOpen(true)}
+                className="font-heading text-2xl font-black text-[#2E1B0E] tracking-tight leading-tight cursor-pointer hover:text-[#D97706] transition-colors"
+                title="Click to view all dealerships"
+              >
+                Our Dealing Partners
+              </h2>
+
+              <p className="text-xs text-[#78543E] mt-2 font-medium leading-relaxed">
+                Authorized dealer & stockist for premier construction, steel, electricals, and finishing materials.
+              </p>
+
+              {/* Action Trigger Button */}
+              <div className="mt-4 flex flex-col gap-2">
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="self-start inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold text-white golden-btn shadow-md cursor-pointer active:scale-95 transition-all"
+                >
+                  <Grid className="w-3.5 h-3.5" />
+                  <span>View All {BRAND_LOGOS.length} Brands</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+                <span className="text-[11px] text-[#A16207] font-semibold flex items-center gap-1.5">
+                  <Sparkles className="w-3 h-3 text-[#D97706]" />
+                  <span>Tap any logo on the right for instant quote</span>
+                </span>
+              </div>
+            </div>
+
+            {/* Right Column: Flush-to-edge Vertical Track (Top to Bottom Scrolling) */}
+            <div 
+              className="w-28 xs:w-32 h-[360px] relative overflow-hidden shrink-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)] select-none rounded-2xl bg-gradient-to-b from-amber-500/10 via-amber-500/5 to-amber-500/10 border border-amber-200/80 shadow-inner"
+              style={{ touchAction: 'pan-y' }}
+              title="Continuous live brand reel • Tap any brand to get quote"
+            >
+              {/* Vertical Marquee Scrolling Continuously From Top to Bottom */}
+              <div 
+                className="animate-marquee-vertical-down flex flex-col items-center gap-3 py-2"
+                style={{ touchAction: 'pan-y' }}
+              >
+                {repeatedLogos.map((brand, idx) => (
+                  <div
+                    key={`mobile-v-${brand.id}-${idx}`}
+                    onClick={() => handleBrandSelect(brand.name)}
+                    className="w-24 xs:w-28 h-14 bg-white/95 rounded-xl border border-amber-200/80 p-1.5 flex items-center justify-center shadow-xs shrink-0 cursor-pointer active:scale-95 transition-transform"
+                    title={`Get quote for ${brand.name}`}
+                  >
+                    <img
+                      src={brand.logo}
+                      alt={brand.name}
+                      className="max-h-full max-w-full object-contain filter drop-shadow-2xs"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </Scroll3D>
+      </div>
 
       {/* ALL DEALERSHIPS MODAL */}
       {isModalOpen && (
@@ -286,6 +379,9 @@ export default function BrandsSection({ onOpenQuote }: BrandsSectionProps) {
                         </h4>
                         <span className="text-[10px] font-medium text-amber-700/70 block truncate">
                           {brand.category}
+                        </span>
+                        <span className="text-[9px] font-bold text-[#B45309] block truncate mt-0.5">
+                          {CATEGORY_COMPANIES[brand.category]}
                         </span>
                       </div>
 

@@ -60,4 +60,11 @@ const readme = '# Sree Murugan Sons - Standalone Production Bundle\n\n' +
   'Navigate to `http://localhost:5000`\n';
 fs.writeFileSync(path.resolve(releaseDir, 'README.md'), readme);
 
+// 6. Sync index.html to deploy-hostinger
+const deployHostingerHtml = path.resolve('deploy-hostinger/index.html');
+if (fs.existsSync(deployHostingerHtml)) {
+  fs.copyFileSync(path.resolve(releaseDir, 'public/index.html'), deployHostingerHtml);
+  console.log('Synchronized index.html -> deploy-hostinger/index.html');
+}
+
 console.log('Standalone bundle created successfully at:', releaseDir);

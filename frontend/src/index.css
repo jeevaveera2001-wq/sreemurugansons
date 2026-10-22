@@ -291,6 +291,27 @@
   animation-play-state: paused;
 }
 
+@keyframes marquee-scroll-vertical-up {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-marquee-vertical-up {
+  display: flex;
+  flex-direction: column;
+  animation: marquee-scroll-vertical-up 45s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-vertical-up:hover,
+.animate-marquee-vertical-up:active {
+  animation-play-state: paused;
+}
+
 @keyframes marquee-scroll-vertical-down {
   0% {
     transform: translateY(-50%);
@@ -307,7 +328,8 @@
   will-change: transform;
 }
 
-.animate-marquee-vertical-down:hover {
+.animate-marquee-vertical-down:hover,
+.animate-marquee-vertical-down:active {
   animation-play-state: paused;
 }
 

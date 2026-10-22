@@ -187,7 +187,7 @@ export default function BrandsSection({ onOpenQuote }: BrandsSectionProps) {
         </Scroll3D>
       </div>
 
-      {/* MOBILE VIEW (< md): Right-Side Flush Vertical Marquee (Top to Bottom, Non-blocking Touch) */}
+      {/* MOBILE VIEW (< md): Right-Side Flush Vertical Marquee (Bottom to Top, Non-blocking Touch) */}
       <div className="md:hidden relative px-4 overflow-hidden">
         <Scroll3D direction="up" delay={0.08}>
           <div className="flex items-center justify-between gap-3 min-h-[360px] relative">
@@ -231,15 +231,15 @@ export default function BrandsSection({ onOpenQuote }: BrandsSectionProps) {
               </div>
             </div>
 
-            {/* Right Column: Flush-to-edge Vertical Track (Top to Bottom Scrolling) */}
+            {/* Right Column: Flush-to-edge Vertical Track (Bottom to Top Scrolling) */}
             <div 
               className="w-28 xs:w-32 h-[360px] relative overflow-hidden shrink-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)] select-none rounded-2xl bg-gradient-to-b from-amber-500/10 via-amber-500/5 to-amber-500/10 border border-amber-200/80 shadow-inner"
               style={{ touchAction: 'pan-y' }}
               title="Continuous live brand reel • Tap any brand to get quote"
             >
-              {/* Vertical Marquee Scrolling Continuously From Top to Bottom */}
+              {/* Vertical Marquee Scrolling Continuously From Bottom to Top */}
               <div 
-                className="animate-marquee-vertical-down flex flex-col items-center gap-3 py-2"
+                className="animate-marquee-vertical-up flex flex-col items-center gap-3 py-2"
                 style={{ touchAction: 'pan-y' }}
               >
                 {repeatedLogos.map((brand, idx) => (
